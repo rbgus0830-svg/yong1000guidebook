@@ -1,0 +1,2725 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026학년도 6학년 수학여행 가이드북</title>
+
+  <style>
+    :root {
+      --navy: #17365d;
+      --blue: #2f75b5;
+      --light-blue: #eaf3f8;
+      --green: #3a7d44;
+      --light-green: #edf7ed;
+      --orange: #e67e22;
+      --light-orange: #fff4e8;
+      --red: #c0392b;
+      --light-red: #fff0ef;
+      --yellow: #fff6cc;
+      --gray-1: #f5f6f7;
+      --gray-2: #d5d9dd;
+      --gray-3: #687078;
+      --text: #202428;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #dfe3e6;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family:
+        "Pretendard",
+        "Noto Sans KR",
+        "맑은 고딕",
+        "Malgun Gothic",
+        sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+
+    /* 화면용 도구 모음 */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      color: #fff;
+      background: #1f2933;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+    }
+
+    .toolbar button {
+      padding: 9px 14px;
+      color: #fff;
+      font-size: 10pt;
+      font-weight: 700;
+      font-family: inherit;
+      border: 1px solid rgba(255, 255, 255, .35);
+      border-radius: 6px;
+      background: #34495e;
+      cursor: pointer;
+    }
+
+    .toolbar button:hover {
+      background: var(--blue);
+    }
+
+    .toolbar .danger {
+      background: #7f2d2d;
+    }
+
+    .toolbar-guide {
+      width: 100%;
+      color: #dce6ed;
+      font-size: 8.5pt;
+      text-align: center;
+    }
+
+    /* A4 페이지 */
+    #book {
+      width: 210mm;
+      margin: 14px auto 40px;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 14px;
+      padding: 17mm 16mm 18mm;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 3px 14px rgba(0, 0, 0, .16);
+      break-after: page;
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      break-after: auto;
+      page-break-after: auto;
+    }
+
+    .page-number {
+      position: absolute;
+      right: 16mm;
+      bottom: 8mm;
+      color: #6d747a;
+      font-size: 8.5pt;
+    }
+
+    .footer-title {
+      position: absolute;
+      left: 16mm;
+      bottom: 8mm;
+      color: #8a9197;
+      font-size: 8pt;
+    }
+
+    /* 제목과 본문 */
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-size: 27pt;
+      line-height: 1.25;
+      letter-spacing: -1.5px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      color: var(--navy);
+      font-size: 20pt;
+      line-height: 1.3;
+      border-bottom: 3px solid var(--blue);
+    }
+
+    h3 {
+      margin: 17px 0 8px;
+      color: var(--navy);
+      font-size: 13.5pt;
+    }
+
+    h4 {
+      margin: 11px 0 6px;
+      color: #263746;
+      font-size: 11.5pt;
+    }
+
+    p {
+      margin-bottom: 8px;
+    }
+
+    ul,
+    ol {
+      margin: 6px 0 10px;
+      padding-left: 23px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .lead {
+      color: #364550;
+      font-size: 12pt;
+      line-height: 1.7;
+    }
+
+    .small {
+      color: var(--gray-3);
+      font-size: 8.5pt;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .instruction {
+      margin: 8px 0;
+      padding: 9px 12px;
+      color: #334a5d;
+      font-size: 9.5pt;
+      border-left: 5px solid var(--blue);
+      background: var(--light-blue);
+    }
+
+    /* 표 */
+    table {
+      width: 100%;
+      margin: 8px 0 12px;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      height: 31px;
+      padding: 7px 8px;
+      vertical-align: middle;
+      border: 1px solid #9fa8af;
+    }
+
+    th {
+      color: var(--navy);
+      font-weight: 700;
+      text-align: center;
+      background: var(--light-blue);
+    }
+
+    .compact th,
+    .compact td {
+      height: 26px;
+      padding: 5px 6px;
+      font-size: 9pt;
+    }
+
+    .schedule th:first-child {
+      width: 27%;
+    }
+
+    .schedule td:first-child {
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* 상자 및 레이아웃 */
+    .box {
+      margin: 10px 0;
+      padding: 12px 14px;
+      border: 1.5px solid #91a6b6;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .box.blue {
+      border-color: #6ba2c8;
+      background: var(--light-blue);
+    }
+
+    .box.green {
+      border-color: #83b88a;
+      background: var(--light-green);
+    }
+
+    .box.orange {
+      border-color: #e6a45f;
+      background: var(--light-orange);
+    }
+
+    .box.red {
+      border-color: #df8c84;
+      background: var(--light-red);
+    }
+
+    .box.yellow {
+      border-color: #d7bd51;
+      background: var(--yellow);
+    }
+
+    .box-title {
+      margin-bottom: 6px;
+      color: var(--navy);
+      font-size: 11.5pt;
+      font-weight: 800;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 2px 3px 2px 0;
+      padding: 3px 8px;
+      color: #fff;
+      font-size: 8.5pt;
+      font-weight: 700;
+      border-radius: 20px;
+      background: var(--blue);
+    }
+
+    .mission {
+      margin: 7px 0;
+      padding: 10px 12px;
+      border: 1px dashed #6f8da3;
+      border-radius: 7px;
+      background: #fbfdff;
+    }
+
+    .mission::before {
+      content: "탐구 미션";
+      display: inline-block;
+      margin-right: 7px;
+      padding: 2px 7px;
+      color: #fff;
+      font-size: 8.5pt;
+      font-weight: 700;
+      border-radius: 12px;
+      background: var(--blue);
+    }
+
+    /* 입력 영역 */
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      color: #1f2d36;
+      font-family: inherit;
+      font-size: 10pt;
+      border: 1px solid #8fa1ad;
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+      height: 31px;
+      padding: 5px 7px;
+    }
+
+    textarea {
+      min-height: 62px;
+      padding: 8px;
+      line-height: 1.6;
+      resize: vertical;
+    }
+
+    textarea.medium {
+      min-height: 100px;
+    }
+
+    textarea.large {
+      min-height: 155px;
+    }
+
+    .line-input {
+      display: inline-block;
+      min-width: 120px;
+      height: 24px;
+      padding: 0 4px;
+      vertical-align: bottom;
+      border: 0;
+      border-bottom: 1px solid #49545c;
+      border-radius: 0;
+    }
+
+    [contenteditable="true"] {
+      outline: 2px dashed rgba(47, 117, 181, .35);
+      outline-offset: 2px;
+    }
+
+    .writing-lines {
+      min-height: 92px;
+      margin: 7px 0;
+      padding: 2px 5px;
+      line-height: 27px;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 26px,
+          #aeb7bd 27px
+        );
+    }
+
+    .drawing-space {
+      min-height: 190px;
+      margin: 8px 0;
+      border: 1px solid #9aa6ad;
+      border-radius: 7px;
+      background:
+        linear-gradient(#f4f6f7 1px, transparent 1px),
+        linear-gradient(90deg, #f4f6f7 1px, transparent 1px);
+      background-size: 10mm 10mm;
+    }
+
+    .checkbox-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 13px;
+      margin: 7px 0;
+    }
+
+    .checkbox-list div::before {
+      content: "□";
+      margin-right: 7px;
+      font-size: 13pt;
+      vertical-align: -1px;
+    }
+
+    /* 표지 */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 23mm;
+      padding-bottom: 25mm;
+      color: #fff;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(15, 54, 88, .97),
+          rgba(47, 117, 181, .91)
+        );
+    }
+
+    .cover h1 {
+      margin: 20px 0 8px;
+      color: #fff;
+      font-size: 31pt;
+      text-align: center;
+    }
+
+    .cover .subtitle {
+      font-size: 15pt;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .cover .symbol {
+      margin: 12px auto 20px;
+      font-size: 56pt;
+      text-align: center;
+    }
+
+    .cover-info {
+      padding: 18px;
+      color: #183249;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .94);
+    }
+
+    .cover-info table {
+      margin: 0;
+    }
+
+    .cover-info th {
+      width: 28%;
+      background: #edf5fa;
+    }
+
+    .cover-pledge {
+      padding: 13px;
+      font-size: 12pt;
+      font-weight: 700;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, .6);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .grade-class-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 5px;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    .grade-class-row span {
+      flex: 0 0 auto;
+    }
+
+    .grade-class-row .class-number {
+      flex: 0 0 42px;
+      width: 42px !important;
+      min-width: 42px;
+      max-width: 42px;
+      height: 31px;
+      padding: 4px;
+      text-align: center;
+    }
+
+    /* 11쪽: 서대문형무소 사전조사 */
+    .research-page {
+      padding-top: 13mm;
+    }
+
+    .research-page h2 {
+      margin-bottom: 8px;
+    }
+
+    .research-page h3 {
+      margin: 9px 0 5px;
+      font-size: 12pt;
+    }
+
+    .research-page .lead {
+      margin-bottom: 5px;
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+
+    .research-page .instruction {
+      margin: 5px 0;
+      padding: 6px 9px;
+      font-size: 8.5pt;
+    }
+
+    .research-page table {
+      margin: 4px 0 7px;
+    }
+
+    .research-page .compact th,
+    .research-page .compact td {
+      padding: 3px 5px;
+      font-size: 8.5pt;
+    }
+
+    .research-page input[type="text"] {
+      height: 27px;
+      font-size: 8.8pt;
+    }
+
+    .research-page textarea {
+      min-height: 39px;
+      padding: 4px 6px;
+      font-size: 8.6pt;
+      line-height: 1.4;
+    }
+
+    .history-flow {
+      display: grid;
+      grid-template-columns: 1fr 19px 1fr 19px 1fr;
+      align-items: stretch;
+      gap: 3px;
+      margin: 4px 0 7px;
+    }
+
+    .history-step {
+      padding: 5px;
+      border: 1px solid #7fa3bd;
+      border-radius: 7px;
+      background: var(--light-blue);
+    }
+
+    .history-step-title {
+      margin-bottom: 3px;
+      color: var(--navy);
+      font-size: 9pt;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .history-step textarea {
+      min-height: 61px;
+      font-size: 8.2pt;
+      background: #fff;
+    }
+
+    .history-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+      font-size: 15pt;
+      font-weight: 800;
+    }
+
+    .research-question-list {
+      display: grid;
+      gap: 4px;
+      margin: 4px 0 7px;
+    }
+
+    .research-question-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .research-question-number {
+      flex: 0 0 46px;
+      color: var(--navy);
+      font-size: 8.7pt;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .research-question-row input {
+      flex: 1 1 auto;
+    }
+
+    .research-bottom-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 7px;
+      align-items: stretch;
+      margin-top: 4px;
+    }
+
+    .research-source-box,
+    .research-check-box {
+      margin: 0;
+      padding: 7px 9px;
+    }
+
+    .research-source-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 4px;
+    }
+
+    .research-source-row span {
+      flex: 0 0 39px;
+      color: var(--navy);
+      font-size: 8.5pt;
+      font-weight: 800;
+    }
+
+    .research-source-row input {
+      flex: 1 1 auto;
+    }
+
+    .research-check-box .box-title,
+    .research-source-box .box-title {
+      margin-bottom: 2px;
+      font-size: 9.8pt;
+    }
+
+    .research-check-box .checkbox-list {
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin: 1px 0 0;
+      font-size: 8.1pt;
+    }
+
+    .research-check-box .checkbox-list div::before {
+      margin-right: 4px;
+      font-size: 10pt;
+    }
+
+    /* 마지막 페이지 */
+    .postcard-letter {
+      margin: 10px 0 14px;
+      padding: 14px;
+      border: 1.5px solid #91a6b6;
+      border-radius: 9px;
+      background: #fbfdff;
+    }
+
+    .letter-opening {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 12pt;
+    }
+
+    .letter-signature {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .signature-date,
+    .signature-name,
+    .future-recipient {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .date-part {
+      width: 42px !important;
+      min-width: 42px;
+      height: 29px !important;
+      padding: 3px 4px !important;
+      text-align: center;
+    }
+
+    .date-part.year {
+      width: 58px !important;
+      min-width: 58px;
+    }
+
+    .student-name-input {
+      width: 100px !important;
+      min-width: 100px;
+      height: 29px !important;
+    }
+
+    .future-recipient {
+      justify-content: center;
+      margin: 10px auto 0;
+      padding: 13px 15px;
+      color: var(--navy);
+      font-size: 13pt;
+      font-weight: 700;
+      border: 1.5px solid #6ba2c8;
+      border-radius: 8px;
+      background: var(--light-blue);
+    }
+
+    .future-year-input {
+      width: 67px !important;
+      min-width: 67px;
+      text-align: center;
+    }
+
+    .future-age-input {
+      width: 47px !important;
+      min-width: 47px;
+      text-align: center;
+    }
+
+    .future-example {
+      margin-top: 5px;
+    }
+
+    .closing-message {
+      margin-top: 15px;
+      font-size: 12pt;
+    }
+
+    /* 인쇄 설정 */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      html,
+      body {
+        background: #fff;
+      }
+
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      #book {
+        width: auto;
+        margin: 0;
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+
+      [contenteditable="true"] {
+        outline: none;
+      }
+
+      .postcard-letter textarea.large {
+        min-height: 190px;
+      }
+    }
+
+    /* 작은 화면 */
+    @media screen and (max-width: 850px) {
+      #book {
+        width: 100%;
+      }
+
+      .page {
+        width: 100%;
+        min-height: auto;
+        padding: 30px 15px 55px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .research-bottom-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .history-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .history-arrow {
+        transform: rotate(90deg);
+      }
+
+      .cover-info {
+        padding: 12px;
+      }
+
+      .cover-info th {
+        width: 30%;
+      }
+
+      .cover-info th,
+      .cover-info td {
+        padding: 7px;
+      }
+
+      .grade-class-row {
+        gap: 4px;
+      }
+
+      .grade-class-row .class-number {
+        flex-basis: 38px;
+        width: 38px !important;
+        min-width: 38px;
+        max-width: 38px;
+      }
+
+      .letter-signature {
+        align-items: flex-end;
+        flex-direction: column;
+      }
+
+      .future-recipient {
+        font-size: 11pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="toolbar">
+    <button type="button" onclick="toggleEdit()">본문 편집 켜기/끄기</button>
+    <button type="button" onclick="saveDraft()">작성 내용 임시 저장</button>
+    <button type="button" onclick="loadDraft()">저장 내용 불러오기</button>
+    <button type="button" onclick="downloadHTML()">작성본 HTML 다운로드</button>
+    <button type="button" onclick="window.print()">인쇄 / PDF 저장</button>
+    <button type="button" class="danger" onclick="resetDraft()">작성 내용 초기화</button>
+
+    <div class="toolbar-guide">
+      본문 편집을 켜면 제목과 문장을 수정할 수 있습니다.
+      입력 후 ‘작성본 HTML 다운로드’를 누르면 입력 내용이 포함된 파일이 저장됩니다.
+    </div>
+  </div>
+
+  <main id="book">
+    <!-- 1쪽: 표지 -->
+    <section class="page cover">
+      <div>
+        <div class="center">꿈꾸는 우리, 함께 키워 가는 행복한 여행</div>
+        <div class="symbol">🚌</div>
+
+        <h1 class="editable-text">
+          서울에서 만나는<br>
+          역사·문화·우리 이야기
+        </h1>
+
+        <div class="subtitle editable-text">
+          2026학년도 용천초등학교 6학년 수학여행 가이드북
+        </div>
+      </div>
+
+      <div class="cover-info">
+        <table>
+          <tr>
+            <th>여행 기간</th>
+            <td>2026년 10월 19일(월) ~ 10월 21일(수), 2박 3일</td>
+          </tr>
+          <tr>
+            <th>여행 장소</th>
+            <td>서울특별시 일대</td>
+          </tr>
+          <tr>
+            <th>숙소</th>
+            <td>올림픽파크텔</td>
+          </tr>
+          <tr>
+            <th>학년·반</th>
+            <td>
+              <div class="grade-class-row">
+                <span>6학년</span>
+                <input
+                  class="class-number"
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="1"
+                  placeholder="1"
+                  aria-label="반 번호"
+                >
+                <span>반</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>이름</th>
+            <td>
+              <input type="text" aria-label="학생 이름">
+            </td>
+          </tr>
+          <tr>
+            <th>모둠</th>
+            <td>
+              <input type="text" aria-label="모둠 이름">
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="cover-pledge editable-text">
+        안전하게 · 질서 있게 · 서로를 배려하며<br>
+        보고, 듣고, 느낀 것을 배움으로 연결합니다.
+      </div>
+    </section>
+
+    <!-- 2쪽 -->
+    <section class="page">
+      <h2>가이드북 사용 안내</h2>
+
+      <p class="lead">
+        이 가이드북은 수학여행 전·중·후의 배움을 연결하는
+        <strong>나만의 여행 기록장</strong>입니다.
+      </p>
+
+      <div class="grid-3">
+        <div class="box blue">
+          <div class="box-title">여행 전</div>
+          <p>방문지를 조사하고 일정과 안전수칙을 익힙니다.</p>
+        </div>
+
+        <div class="box green">
+          <div class="box-title">여행 중</div>
+          <p>탐방 미션을 수행하고 관찰한 내용을 기록합니다.</p>
+        </div>
+
+        <div class="box orange">
+          <div class="box-title">여행 후</div>
+          <p>경험을 돌아보고 나의 배움과 성장을 정리합니다.</p>
+        </div>
+      </div>
+
+      <h3>우리 수학여행의 목표</h3>
+
+      <div class="checkbox-list editable-text">
+        <div>서울의 역사와 문화를 직접 체험합니다.</div>
+        <div>배려와 협력을 실천합니다.</div>
+        <div>공공장소의 질서와 예절을 지킵니다.</div>
+        <div>안전수칙을 알고 실천합니다.</div>
+        <div>관찰한 내용을 질문과 기록으로 남깁니다.</div>
+        <div>친구들과 소중한 추억을 만듭니다.</div>
+      </div>
+
+      <h3>출발 전 나의 마음</h3>
+
+      <table>
+        <tr>
+          <th style="width:30%;">가장 기대되는 장소</th>
+          <td><input type="text" aria-label="가장 기대되는 장소"></td>
+        </tr>
+        <tr>
+          <th>기대되는 이유</th>
+          <td><textarea aria-label="기대되는 이유"></textarea></td>
+        </tr>
+        <tr>
+          <th>새롭게 알고 싶은 것</th>
+          <td><textarea aria-label="새롭게 알고 싶은 것"></textarea></td>
+        </tr>
+        <tr>
+          <th>이번 여행의 목표</th>
+          <td><textarea aria-label="개인 목표"></textarea></td>
+        </tr>
+      </table>
+
+      <div class="box yellow">
+        <div class="box-title">나의 여행 기대 지수</div>
+        <p class="center" style="font-size:19pt; letter-spacing:10px;">
+          ☆ ☆ ☆ ☆ ☆
+        </p>
+        <p class="small center">기대하는 만큼 별을 색칠해 보세요.</p>
+      </div>
+
+      <div class="footer-title">2026학년도 6학년 수학여행 가이드북</div>
+      <div class="page-number">2</div>
+    </section>
+
+    <!-- 3쪽 -->
+    <section class="page">
+      <h2>2박 3일 일정 한눈에 보기</h2>
+
+      <div class="box blue">
+        <strong>여행 기간:</strong> 2026. 10. 19.(월) ~ 10. 21.(수)<br>
+        <strong>여행 지역:</strong> 서울특별시 일대<br>
+        <strong>이동 방법:</strong> 전세버스<br>
+        <strong>숙소:</strong> 올림픽파크텔
+      </div>
+
+      <h3>DAY 1 · 서울의 문화와 도시를 만나는 날</h3>
+
+      <table class="schedule compact">
+        <tr><th>시간</th><th>활동</th></tr>
+        <tr><td>08:30~09:00</td><td>학교 정문 집결, 인원 및 준비물 확인</td></tr>
+        <tr><td>09:00~10:00</td><td>학교 출발 및 이동</td></tr>
+        <tr><td>10:00~12:00</td><td>남산 케이블카 및 YTN서울타워</td></tr>
+        <tr><td>12:30~13:30</td><td>점심 식사</td></tr>
+        <tr><td>14:00~16:00</td><td>대학로 연극 관람</td></tr>
+        <tr><td>16:30~18:00</td><td>롯데월드타워 서울스카이</td></tr>
+        <tr><td>18:00 이후</td><td>저녁 식사, 숙소 생활 및 취침 준비</td></tr>
+      </table>
+
+      <h3>DAY 2 · 함께 즐기며 안전을 실천하는 날</h3>
+
+      <table class="schedule compact">
+        <tr><th>시간</th><th>활동</th></tr>
+        <tr><td>07:30~08:30</td><td>기상 및 아침 식사</td></tr>
+        <tr><td>09:00~10:00</td><td>졸업앨범 야외 촬영</td></tr>
+        <tr><td>10:00~21:00</td><td>롯데월드 체험, 식사 및 야간 개장</td></tr>
+        <tr><td>21:00 이후</td><td>숙소 이동, 세면 및 취침</td></tr>
+      </table>
+
+      <h3>DAY 3 · 서울의 역사와 기억을 배우는 날</h3>
+
+      <table class="schedule compact">
+        <tr><th>시간</th><th>활동</th></tr>
+        <tr><td>07:30~08:30</td><td>기상 및 아침 식사</td></tr>
+        <tr><td>10:00~12:00</td><td>경복궁 관람</td></tr>
+        <tr><td>12:00~13:00</td><td>점심 식사</td></tr>
+        <tr><td>13:00~14:30</td><td>서대문형무소역사관 관람</td></tr>
+        <tr><td>14:30 이후</td><td>학교로 출발</td></tr>
+      </table>
+
+      <p class="instruction">
+        날씨와 방문 기관 사정에 따라 시간 및 체험 순서가 변경될 수 있습니다.
+      </p>
+
+      <div class="footer-title">전체 일정</div>
+      <div class="page-number">3</div>
+    </section>
+
+    <!-- 4쪽 -->
+    <section class="page">
+      <h2>일정을 분석해 봅시다</h2>
+
+      <div class="instruction">
+        전체 일정을 읽고 모둠 친구들과 의논하여 작성해 봅시다.
+      </div>
+
+      <h3>1. 활동의 성격에 따라 분류하기</h3>
+
+      <table>
+        <tr>
+          <th style="width:25%;">역사 탐방</th>
+          <td><textarea aria-label="역사 탐방 장소"></textarea></td>
+        </tr>
+        <tr>
+          <th>문화·예술 체험</th>
+          <td><textarea aria-label="문화 예술 체험"></textarea></td>
+        </tr>
+        <tr>
+          <th>도시·건축 탐구</th>
+          <td><textarea aria-label="도시 건축 탐구"></textarea></td>
+        </tr>
+        <tr>
+          <th>친교·공동체 활동</th>
+          <td><textarea aria-label="친교 공동체 활동"></textarea></td>
+        </tr>
+      </table>
+
+      <h3>2. 장소별 안전 요소 찾기</h3>
+
+      <table class="compact">
+        <tr>
+          <th>장소 또는 활동</th>
+          <th>예상되는 위험 요소</th>
+          <th>안전하게 행동하는 방법</th>
+        </tr>
+        <tr>
+          <td><input type="text"></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="text"></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="text"></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+
+      <h3>3. 우리 모둠의 최우선 기대 일정</h3>
+
+      <div class="box green">
+        <p><strong>선택한 일정</strong></p>
+        <input type="text" aria-label="선택 일정">
+
+        <p style="margin-top:10px;"><strong>선택한 이유</strong></p>
+        <textarea class="medium" aria-label="선택 이유"></textarea>
+      </div>
+
+      <h3>4. 여행 전에 꼭 묻고 싶은 질문</h3>
+
+      <ol>
+        <li><input type="text"></li>
+        <li><input type="text"></li>
+        <li><input type="text"></li>
+      </ol>
+
+      <div class="footer-title">사전 활동 · 일정 분석</div>
+      <div class="page-number">4</div>
+    </section>
+
+    <!-- 5쪽 -->
+    <section class="page">
+      <h2>DAY 1 · 남산과 서울타워</h2>
+
+      <div>
+        <span class="tag">도시 지리</span>
+        <span class="tag">전망 관찰</span>
+        <span class="tag">교통 원리</span>
+      </div>
+
+      <p class="lead">
+        높은 곳에서 서울을 내려다보며 도시의 지형, 건축물, 도로와 한강의
+        위치를 관찰합니다.
+      </p>
+
+      <h3>여행 전 조사 활동</h3>
+
+      <table>
+        <tr>
+          <th style="width:29%;">남산의 위치와 특징</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>서울타워의 역할</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>케이블카의 이동 원리</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>조사 자료의 출처</th>
+          <td><input type="text"></td>
+        </tr>
+      </table>
+
+      <h3>생각을 여는 질문</h3>
+
+      <div class="mission">
+        높은 곳에서 본 서울과 지도에서 본 서울은 어떻게 다를까요?
+      </div>
+      <textarea></textarea>
+
+      <div class="mission">
+        케이블카가 안전하게 이동하려면 어떤 장치가 필요할까요?
+      </div>
+      <textarea></textarea>
+
+      <h3>현장 관찰 체크리스트</h3>
+
+      <div class="checkbox-list">
+        <div>한강의 위치를 찾아본다.</div>
+        <div>고층 건물이 모인 곳을 찾는다.</div>
+        <div>산과 도시의 경계를 관찰한다.</div>
+        <div>도로가 연결된 모습을 관찰한다.</div>
+        <div>알고 있는 서울 명소를 찾는다.</div>
+        <div>동서남북 방향을 확인한다.</div>
+      </div>
+
+      <div class="box orange">
+        <div class="box-title">높은 곳에서 지킬 안전 약속</div>
+        <ul>
+          <li>난간에 기대거나 몸을 밖으로 내밀지 않습니다.</li>
+          <li>승·하차할 때 앞사람을 밀지 않습니다.</li>
+          <li>모둠과 함께 이동합니다.</li>
+          <li>사진을 찍으려고 위험한 자세를 취하지 않습니다.</li>
+        </ul>
+      </div>
+
+      <div class="footer-title">DAY 1 · 남산과 서울타워</div>
+      <div class="page-number">5</div>
+    </section>
+
+    <!-- 6쪽 -->
+    <section class="page">
+      <h2>DAY 1 · 연극과 서울스카이</h2>
+
+      <h3>대학로 연극 관람</h3>
+
+      <div class="box blue">
+        <div class="box-title">공연 관람 예절</div>
+
+        <div class="checkbox-list">
+          <div>공연 전 화장실을 다녀옵니다.</div>
+          <div>공연 중 대화하거나 이동하지 않습니다.</div>
+          <div>전자기기를 사용하지 않습니다.</div>
+          <div>허가 없이 촬영하지 않습니다.</div>
+          <div>음식물을 먹지 않습니다.</div>
+          <div>적절한 박수로 호응합니다.</div>
+        </div>
+      </div>
+
+      <h4>연극과 영화 비교하기</h4>
+
+      <table class="compact">
+        <tr><th>비교 기준</th><th>연극</th><th>영화</th></tr>
+        <tr>
+          <td>배우와 관객의 거리</td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>공간과 무대</td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>가장 큰 특징</td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+
+      <h3>롯데월드타워 서울스카이</h3>
+
+      <div class="mission">
+        초고층 건물이 바람, 지진, 화재에 대비하려면 어떤 시설이 필요할까요?
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h4>나의 예상</h4>
+          <textarea class="medium"></textarea>
+        </div>
+
+        <div class="box">
+          <h4>조사한 내용</h4>
+          <textarea class="medium"></textarea>
+        </div>
+      </div>
+
+      <h4>두 전망대 비교 예상</h4>
+
+      <table class="compact">
+        <tr><th>비교 항목</th><th>남산 전망</th><th>서울스카이 전망</th></tr>
+        <tr><td>높이와 느낌</td><td></td><td></td></tr>
+        <tr><td>주변 지형</td><td></td><td></td></tr>
+        <tr><td>기대되는 풍경</td><td></td><td></td></tr>
+      </table>
+
+      <div class="footer-title">DAY 1 · 문화와 도시 탐구</div>
+      <div class="page-number">6</div>
+    </section>
+
+    <!-- 7쪽 -->
+    <section class="page">
+      <h2>DAY 2 · 롯데월드 탐방 계획</h2>
+
+      <p class="lead">
+        모둠원 모두의 건강, 의견과 안전을 고려해 동선을 계획합니다.
+      </p>
+
+      <table class="compact">
+        <tr>
+          <th style="width:9%;">순서</th>
+          <th style="width:27%;">희망 시설</th>
+          <th>선택한 이유</th>
+          <th>안전 요소</th>
+        </tr>
+        <tr>
+          <td class="center">1</td>
+          <td><input type="text"></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td class="center">2</td>
+          <td><input type="text"></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td class="center">3</td>
+          <td><input type="text"></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td class="center">4</td>
+          <td><input type="text"></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+
+      <h3>동선을 정할 때 고려할 점</h3>
+
+      <div class="checkbox-list">
+        <div>체험시설 사이의 거리</div>
+        <div>예상 대기시간</div>
+        <div>식사 및 집결 시각</div>
+        <div>모둠원 모두의 의견</div>
+        <div>키·건강 상태 등 이용 제한</div>
+        <div>비상시 만날 장소</div>
+      </div>
+
+      <div class="box orange">
+        <div class="box-title">상황 해결</div>
+        <p>
+          모둠원 한 명이 특정 놀이기구를 무서워하거나 이용할 수 없다면
+          어떻게 해야 할까요?
+        </p>
+        <textarea class="medium"></textarea>
+      </div>
+
+      <p class="instruction">
+        친구에게 탑승을 강요하지 않습니다. 모두 동의할 수 있는 대체 활동이나
+        안전한 대기 방법을 함께 정합니다.
+      </p>
+
+      <div class="footer-title">DAY 2 · 롯데월드 탐방 계획</div>
+      <div class="page-number">7</div>
+    </section>
+
+    <!-- 8쪽 -->
+    <section class="page">
+      <h2>DAY 2 · 안전한 체험</h2>
+
+      <h3>놀이기구 안전수칙</h3>
+
+      <div class="box red">
+        <ol>
+          <li>키·연령·건강 상태에 따른 이용 제한을 확인합니다.</li>
+          <li>안전요원의 안내를 따릅니다.</li>
+          <li>안전장치가 완전히 잠겼는지 확인합니다.</li>
+          <li>운행 중 일어서거나 손발을 밖으로 내밀지 않습니다.</li>
+          <li>떨어질 수 있는 물건은 안전하게 보관합니다.</li>
+          <li>몸이 불편하면 무리해서 이용하지 않습니다.</li>
+          <li>집결 시각과 장소를 지킵니다.</li>
+        </ol>
+      </div>
+
+      <h3>우리 모둠 비상 계획</h3>
+
+      <table>
+        <tr>
+          <th style="width:31%;">집결 장소</th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th>집결 시각</th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th>모둠원을 놓쳤을 때</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>몸이 불편할 때</th>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+
+      <h3>졸업앨범 야외 촬영 약속</h3>
+
+      <div class="checkbox-list">
+        <div>촬영 시각과 장소를 확인합니다.</div>
+        <div>촬영하는 친구를 방해하지 않습니다.</div>
+        <div>친구의 외모를 놀리지 않습니다.</div>
+        <div>사진을 허락 없이 공유하지 않습니다.</div>
+        <div>위험한 장소에서 촬영하지 않습니다.</div>
+        <div>모둠과 함께 이동합니다.</div>
+      </div>
+
+      <h3>사진에 담고 싶은 우리 반의 모습</h3>
+
+      <table>
+        <tr>
+          <th style="width:28%;">우리 반을 표현하는 말</th>
+          <td>
+            <input type="text" placeholder="첫 번째 말">
+            <input type="text" placeholder="두 번째 말">
+            <input type="text" placeholder="세 번째 말">
+          </td>
+        </tr>
+        <tr>
+          <th>사진 구도 아이디어</th>
+          <td><textarea class="medium"></textarea></td>
+        </tr>
+      </table>
+
+      <div class="footer-title">DAY 2 · 안전한 체험</div>
+      <div class="page-number">8</div>
+    </section>
+
+    <!-- 9쪽 -->
+    <section class="page">
+      <h2>DAY 3 · 경복궁 탐구</h2>
+
+      <div>
+        <span class="tag">조선</span>
+        <span class="tag">궁궐</span>
+        <span class="tag">문화유산</span>
+        <span class="tag">전통 건축</span>
+      </div>
+
+      <p class="lead">
+        경복궁의 주요 건물과 공간을 살펴보며 조선의 정치·생활·건축 문화를
+        탐구합니다.
+      </p>
+
+      <h3>사전 조사</h3>
+
+      <table>
+        <tr>
+          <th style="width:28%;">경복궁을 세운 목적</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>‘법궁’의 뜻</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>경복궁과 한양의 관계</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>조사 자료의 출처</th>
+          <td><input type="text"></td>
+        </tr>
+      </table>
+
+      <h3>주요 장소 조사</h3>
+
+      <table class="compact">
+        <tr><th style="width:23%;">장소</th><th>주요 역할과 특징</th></tr>
+        <tr><td>광화문</td><td><textarea></textarea></td></tr>
+        <tr><td>근정전</td><td><textarea></textarea></td></tr>
+        <tr><td>경회루</td><td><textarea></textarea></td></tr>
+        <tr><td>향원정</td><td><textarea></textarea></td></tr>
+      </table>
+
+      <div class="box green">
+        <div class="box-title">문화유산 관람 약속</div>
+        <ul>
+          <li>문화재를 만지거나 훼손하지 않습니다.</li>
+          <li>출입금지구역에 들어가지 않습니다.</li>
+          <li>정해진 관람 경로를 따릅니다.</li>
+          <li>큰 소리로 떠들거나 뛰지 않습니다.</li>
+        </ul>
+      </div>
+
+      <div class="footer-title">DAY 3 · 경복궁</div>
+      <div class="page-number">9</div>
+    </section>
+
+    <!-- 10쪽 -->
+    <section class="page">
+      <h2>경복궁 현장 탐방 미션</h2>
+
+      <div class="instruction">
+        문화재를 보호하며 관찰하고, 발견한 내용을 기록합니다.
+      </div>
+
+      <table class="compact">
+        <tr>
+          <th style="width:9%;">확인</th>
+          <th>관찰 미션</th>
+          <th>발견한 내용</th>
+        </tr>
+        <tr>
+          <td class="center">□</td>
+          <td>지붕 모양 관찰하기</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td class="center">□</td>
+          <td>전통 색상 찾아보기</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td class="center">□</td>
+          <td>왕과 신하의 공간 구분하기</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td class="center">□</td>
+          <td>건물 현판 찾아보기</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td class="center">□</td>
+          <td>궁궐과 자연환경 살펴보기</td>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+
+      <h3>내가 발견한 경복궁의 아름다움</h3>
+      <div class="drawing-space"></div>
+
+      <p><strong>그림 또는 관찰 내용을 설명해 봅시다.</strong></p>
+      <textarea class="medium"></textarea>
+
+      <div class="footer-title">DAY 3 · 경복궁 현장 미션</div>
+      <div class="page-number">10</div>
+    </section>
+
+    <!-- 11쪽: 추가된 서대문형무소 사전조사 -->
+    <section class="page research-page">
+      <h2>서대문형무소역사관 사전조사</h2>
+
+      <p class="lead">
+        서대문형무소역사관은 우리나라의 독립과 자유를 위해 노력한 사람들의
+        발자취가 남아 있는 역사적 장소입니다. 방문 전에 장소의 역사와 관련
+        인물을 조사하고, 현장에서 확인할 질문을 만들어 봅시다.
+      </p>
+
+      <div class="instruction">
+        교과서, 서대문형무소역사관 공식 누리집, 공공기관 자료 등 믿을 수 있는
+        자료를 활용하고, 조사한 내용을 자신의 말로 정리하세요.
+      </div>
+
+      <h3>1. 기본 정보를 조사해요</h3>
+
+      <table class="compact">
+        <tr>
+          <th style="width:25%;">조사 항목</th>
+          <th>조사한 내용</th>
+        </tr>
+        <tr>
+          <td>현재 위치</td>
+          <td>
+            <input
+              type="text"
+              aria-label="서대문형무소역사관의 현재 위치"
+              placeholder="시·구·동 또는 주변 지명까지 조사해 보세요."
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>처음 문을 연 시기와 명칭</td>
+          <td>
+            <input
+              type="text"
+              aria-label="서대문형무소가 처음 문을 연 시기와 명칭"
+              placeholder="연도와 당시 사용된 명칭을 함께 적어 보세요."
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>처음 만들어진 목적</td>
+          <td>
+            <textarea
+              aria-label="서대문형무소가 처음 만들어진 목적"
+              placeholder="누가, 어떤 목적으로 만들고 사용했는지 정리해 보세요."
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>역사관으로 보존한 이유</td>
+          <td>
+            <textarea
+              aria-label="서대문형무소를 역사관으로 보존한 이유"
+              placeholder="오늘날 이 장소를 보존하고 관람하는 까닭을 생각해 보세요."
+            ></textarea>
+          </td>
+        </tr>
+      </table>
+
+      <h3>2. 역사의 흐름을 정리해요</h3>
+
+      <div class="history-flow">
+        <div class="history-step">
+          <div class="history-step-title">① 만들어진 시기</div>
+          <textarea
+            aria-label="서대문형무소가 만들어진 시기의 역사"
+            placeholder="언제, 어떤 시대 상황에서 만들어졌을까요?"
+          ></textarea>
+        </div>
+
+        <div class="history-arrow" aria-hidden="true">→</div>
+
+        <div class="history-step">
+          <div class="history-step-title">② 일제강점기</div>
+          <textarea
+            aria-label="일제강점기 서대문형무소의 역사"
+            placeholder="누가 수감되었고 어떤 일이 있었을까요?"
+          ></textarea>
+        </div>
+
+        <div class="history-arrow" aria-hidden="true">→</div>
+
+        <div class="history-step">
+          <div class="history-step-title">③ 오늘날</div>
+          <textarea
+            aria-label="오늘날 서대문형무소역사관의 역할"
+            placeholder="현재는 어떤 공간으로 활용되고 있을까요?"
+          ></textarea>
+        </div>
+      </div>
+
+      <h3>3. 관련 독립운동가 한 명을 조사해요</h3>
+
+      <table class="compact">
+        <tr>
+          <th style="width:18%;">인물 이름</th>
+          <td style="width:32%;">
+            <input
+              type="text"
+              aria-label="조사한 독립운동가 이름"
+              placeholder="인물 이름"
+            >
+          </td>
+          <th style="width:18%;">활동 시기</th>
+          <td>
+            <input
+              type="text"
+              aria-label="독립운동가의 활동 시기"
+              placeholder="연도 또는 시대"
+            >
+          </td>
+        </tr>
+        <tr>
+          <th>주요 활동</th>
+          <td colspan="3">
+            <textarea
+              aria-label="독립운동가의 주요 활동"
+              placeholder="독립을 위해 어떤 일을 했는지 두세 문장으로 정리해 보세요."
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <th>기억하고 싶은 점</th>
+          <td colspan="3">
+            <textarea
+              aria-label="독립운동가에게서 기억하고 싶은 점"
+              placeholder="이 인물의 행동이나 생각 중 기억하고 싶은 점과 그 이유를 적어 보세요."
+            ></textarea>
+          </td>
+        </tr>
+      </table>
+
+      <h3>4. 현장에서 확인할 탐구 질문을 만들어요</h3>
+
+      <div class="research-question-list">
+        <div class="research-question-row">
+          <span class="research-question-number">질문 1</span>
+          <input
+            type="text"
+            aria-label="서대문형무소역사관 현장 탐구 질문 1"
+            placeholder="건물, 전시물 또는 독립운동가에 관한 질문을 적어 보세요."
+          >
+        </div>
+
+        <div class="research-question-row">
+          <span class="research-question-number">질문 2</span>
+          <input
+            type="text"
+            aria-label="서대문형무소역사관 현장 탐구 질문 2"
+            placeholder="자유, 인권 또는 역사적 기억에 관한 질문을 적어 보세요."
+          >
+        </div>
+      </div>
+
+      <div class="research-bottom-grid">
+        <div class="box blue research-source-box">
+          <div class="box-title">5. 조사 자료의 출처</div>
+
+          <div class="research-source-row">
+            <span>자료 1</span>
+            <input
+              type="text"
+              aria-label="첫 번째 조사 자료 출처"
+              placeholder="책이나 누리집 이름"
+            >
+          </div>
+
+          <div class="research-source-row">
+            <span>자료 2</span>
+            <input
+              type="text"
+              aria-label="두 번째 조사 자료 출처"
+              placeholder="책이나 누리집 이름"
+            >
+          </div>
+        </div>
+
+        <div class="box yellow research-check-box">
+          <div class="box-title">조사 내용 점검</div>
+
+          <div class="checkbox-list">
+            <div>믿을 수 있는 자료를 활용했다.</div>
+            <div>내용을 내 말로 정리했다.</div>
+            <div>자료의 출처를 기록했다.</div>
+            <div>현장 질문을 만들었다.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-title">사전 활동 · 서대문형무소역사관</div>
+      <div class="page-number">11</div>
+    </section>
+
+    <!-- 12쪽 -->
+    <section class="page">
+      <h2>DAY 3 · 서대문형무소역사관</h2>
+
+      <p class="lead">
+        역사적 아픔을 간직한 장소의 의미를 생각하며 독립, 인권, 자유와
+        역사적 기억의 가치를 배웁니다.
+      </p>
+
+      <div class="box orange">
+        <div class="box-title">관람 태도</div>
+        <ul>
+          <li>전시 공간의 의미를 생각하며 조용히 관람합니다.</li>
+          <li>장난스러운 사진이나 행동을 하지 않습니다.</li>
+          <li>전시물을 함부로 만지지 않습니다.</li>
+          <li>피해와 고통을 가볍게 표현하지 않습니다.</li>
+        </ul>
+      </div>
+
+      <h3>사전 어휘 조사</h3>
+
+      <table class="compact">
+        <tr><th style="width:25%;">낱말</th><th>내가 조사한 뜻</th></tr>
+        <tr><td>일제강점기</td><td><textarea></textarea></td></tr>
+        <tr><td>독립운동</td><td><textarea></textarea></td></tr>
+        <tr><td>수감</td><td><textarea></textarea></td></tr>
+        <tr><td>인권</td><td><textarea></textarea></td></tr>
+        <tr><td>역사적 기억</td><td><textarea></textarea></td></tr>
+      </table>
+
+      <h3>핵심 탐구 질문</h3>
+
+      <ol>
+        <li>서대문형무소는 어떤 목적으로 만들어졌을까요?</li>
+        <li>독립운동가들은 왜 이곳에 수감되었을까요?</li>
+        <li>독립운동가들이 지키고자 했던 가치는 무엇일까요?</li>
+        <li>역사의 현장을 보존해야 하는 이유는 무엇일까요?</li>
+      </ol>
+
+      <textarea class="large"></textarea>
+
+      <div class="footer-title">DAY 3 · 서대문형무소역사관</div>
+      <div class="page-number">12</div>
+    </section>
+
+    <!-- 13쪽 -->
+    <section class="page">
+      <h2>안전한 여행 · 버스 이용</h2>
+
+      <div class="grid-2">
+        <div class="box blue">
+          <div class="box-title">출발 전</div>
+          <ul>
+            <li>완전히 멈춘 후 탑승합니다.</li>
+            <li>지정된 좌석에 앉습니다.</li>
+            <li>안전벨트를 착용합니다.</li>
+            <li>비상장비 위치를 확인합니다.</li>
+          </ul>
+        </div>
+
+        <div class="box green">
+          <div class="box-title">운행 중</div>
+          <ul>
+            <li>자리에서 이동하지 않습니다.</li>
+            <li>손이나 머리를 내밀지 않습니다.</li>
+            <li>운전을 방해하지 않습니다.</li>
+            <li>비상장비로 장난치지 않습니다.</li>
+          </ul>
+        </div>
+
+        <div class="box orange">
+          <div class="box-title">하차할 때</div>
+          <ul>
+            <li>완전히 멈출 때까지 기다립니다.</li>
+            <li>차례대로 내립니다.</li>
+            <li>좌우를 확인합니다.</li>
+            <li>인원 점검에 참여합니다.</li>
+          </ul>
+        </div>
+
+        <div class="box yellow">
+          <div class="box-title">휴게소에서</div>
+          <ul>
+            <li>보행로를 이용합니다.</li>
+            <li>이동 차량을 주의합니다.</li>
+            <li>출발 시각을 확인합니다.</li>
+            <li>혼자 이동하지 않습니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>버스 안전 OX 퀴즈</h3>
+
+      <table class="compact">
+        <tr><th>문제</th><th style="width:18%;">나의 답</th></tr>
+        <tr>
+          <td>운행 중 친구 자리로 이동해도 된다.</td>
+          <td class="center">O / X</td>
+        </tr>
+        <tr>
+          <td>출발 전에 안전벨트를 착용한다.</td>
+          <td class="center">O / X</td>
+        </tr>
+        <tr>
+          <td>비상망치로 평소에 장난쳐도 된다.</td>
+          <td class="center">O / X</td>
+        </tr>
+        <tr>
+          <td>휴게소에서는 차량의 움직임을 살핀다.</td>
+          <td class="center">O / X</td>
+        </tr>
+      </table>
+
+      <p class="instruction">
+        멀미나 몸의 이상을 느끼면 참지 말고 즉시 선생님께 알립니다.
+      </p>
+
+      <div class="footer-title">안전교육 · 교통</div>
+      <div class="page-number">13</div>
+    </section>
+
+    <!-- 14쪽 -->
+    <section class="page">
+      <h2>안전한 여행 · 비상상황과 숙소</h2>
+
+      <h3>차량에 불이 났을 때</h3>
+
+      <div class="box red">
+        <ol>
+          <li>인솔교사의 지시를 듣습니다.</li>
+          <li>소지품을 챙기지 말고 하차합니다.</li>
+          <li>차량과 도로에서 떨어진 곳으로 이동합니다.</li>
+          <li>모둠별로 인원을 확인합니다.</li>
+          <li>차량 가까이로 돌아가지 않습니다.</li>
+        </ol>
+      </div>
+
+      <h3>소화기 사용 순서</h3>
+
+      <div class="grid-2">
+        <div class="box blue"><strong>①</strong> 안전핀을 뽑습니다.</div>
+        <div class="box blue"><strong>②</strong> 호스를 불로 향합니다.</div>
+        <div class="box blue"><strong>③</strong> 손잡이를 누릅니다.</div>
+        <div class="box blue"><strong>④</strong> 골고루 뿌립니다.</div>
+      </div>
+
+      <h3>숙소 도착 후 확인할 것</h3>
+
+      <div class="checkbox-list">
+        <div>비상구와 비상계단 위치</div>
+        <div>소화기 위치</div>
+        <div>객실별 학생 인원</div>
+        <div>비상 집결 장소</div>
+        <div>인솔교사 객실 위치</div>
+        <div>대피 경로와 순서</div>
+      </div>
+
+      <div class="box orange">
+        <div class="box-title">화재가 발생하면</div>
+        <ul>
+          <li>엘리베이터를 사용하지 않습니다.</li>
+          <li>소지품을 챙기지 않습니다.</li>
+          <li>낮은 자세로 비상계단을 이용합니다.</li>
+          <li>집결 장소에서 인원 확인을 받습니다.</li>
+        </ul>
+      </div>
+
+      <h3>우리 객실의 대피 계획</h3>
+
+      <table>
+        <tr>
+          <th style="width:29%;">가장 가까운 비상구</th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th>비상시 집결 장소</th>
+          <td><input type="text"></td>
+        </tr>
+      </table>
+
+      <div class="footer-title">안전교육 · 비상대피와 숙소</div>
+      <div class="page-number">14</div>
+    </section>
+
+    <!-- 15쪽 -->
+    <section class="page">
+      <h2>안전한 여행 · 건강과 존중</h2>
+
+      <h3>식중독과 알레르기 예방</h3>
+
+      <div class="grid-2">
+        <div class="box green">
+          <ul>
+            <li>식사 전 손을 씻습니다.</li>
+            <li>안전한 식수만 마십니다.</li>
+            <li>맛이나 냄새가 이상하면 먹지 않습니다.</li>
+            <li>쉽게 상하는 간식을 가져오지 않습니다.</li>
+          </ul>
+        </div>
+
+        <div class="box orange">
+          <ul>
+            <li>음식 알레르기를 미리 알립니다.</li>
+            <li>복통·설사·구토가 있으면 알립니다.</li>
+            <li>친구의 약을 나누어 먹지 않습니다.</li>
+            <li>증상을 숨기지 않습니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>친구를 존중하는 여행</h3>
+
+      <div class="box blue">
+        <ul>
+          <li>친구의 외모나 신체를 놀리지 않습니다.</li>
+          <li>친구가 싫다고 하면 즉시 멈춥니다.</li>
+          <li>허락 없이 친구의 몸이나 물건을 만지지 않습니다.</li>
+          <li>사진과 영상을 허락 없이 공유하지 않습니다.</li>
+          <li>불편한 일이 생기면 어른에게 알립니다.</li>
+        </ul>
+      </div>
+
+      <h3>도움을 요청하는 말</h3>
+
+      <table class="compact">
+        <tr><th style="width:39%;">상황</th><th>이렇게 말해요</th></tr>
+        <tr>
+          <td>싫은 장난을 계속할 때</td>
+          <td>“그 행동은 싫어. 지금 멈춰 줘.”</td>
+        </tr>
+        <tr>
+          <td>무서운 일이 있을 때</td>
+          <td>“선생님, 도움이 필요해요.”</td>
+        </tr>
+        <tr>
+          <td>친구가 보이지 않을 때</td>
+          <td>“선생님, 친구가 보이지 않아요.”</td>
+        </tr>
+        <tr>
+          <td>몸이 아플 때</td>
+          <td>“선생님, 몸이 불편해요.”</td>
+        </tr>
+      </table>
+
+      <div class="box red center">
+        <strong>경찰 112　│　화재·구조·구급 119</strong>
+      </div>
+
+      <div class="footer-title">안전교육 · 건강과 존중</div>
+      <div class="page-number">15</div>
+    </section>
+
+    <!-- 16쪽 -->
+    <section class="page">
+      <h2>우리 반 여행 약속</h2>
+
+      <table>
+        <tr><th style="width:23%;">시간</th><td><textarea></textarea></td></tr>
+        <tr><th>안전</th><td><textarea></textarea></td></tr>
+        <tr><th>배려</th><td><textarea></textarea></td></tr>
+        <tr><th>공공예절</th><td><textarea></textarea></td></tr>
+        <tr><th>디지털 기기</th><td><textarea></textarea></td></tr>
+      </table>
+
+      <h3>우리 반 핵심 약속</h3>
+
+      <ol>
+        <li><input type="text"></li>
+        <li><input type="text"></li>
+        <li><input type="text"></li>
+        <li><input type="text"></li>
+        <li><input type="text"></li>
+      </ol>
+
+      <h3>우리 모둠 정보</h3>
+
+      <table class="compact">
+        <tr>
+          <th style="width:24%;">모둠 이름</th>
+          <td><input type="text"></td>
+          <th style="width:21%;">모둠 구호</th>
+          <td><input type="text"></td>
+        </tr>
+      </table>
+
+      <table class="compact">
+        <tr><th>역할</th><th>이름</th><th>하는 일</th></tr>
+        <tr>
+          <td>모둠장</td>
+          <td><input type="text"></td>
+          <td>인원과 시간 확인</td>
+        </tr>
+        <tr>
+          <td>길잡이</td>
+          <td><input type="text"></td>
+          <td>이동 경로 확인</td>
+        </tr>
+        <tr>
+          <td>기록자</td>
+          <td><input type="text"></td>
+          <td>활동 내용 기록</td>
+        </tr>
+        <tr>
+          <td>안전지킴이</td>
+          <td><input type="text"></td>
+          <td>안전수칙 확인</td>
+        </tr>
+        <tr>
+          <td>배려지킴이</td>
+          <td><input type="text"></td>
+          <td>모둠원 상태 확인</td>
+        </tr>
+      </table>
+
+      <div class="footer-title">학급 약속과 모둠 운영</div>
+      <div class="page-number">16</div>
+    </section>
+
+    <!-- 17쪽 -->
+    <section class="page">
+      <h2>출발 전 최종 점검</h2>
+
+      <h3>개인 준비물</h3>
+
+      <div class="checkbox-list">
+        <div>활동하기 편한 옷</div>
+        <div>여벌 옷과 속옷</div>
+        <div>양말</div>
+        <div>세면도구</div>
+        <div>개인 물병</div>
+        <div>작은 수건</div>
+        <div>필기구와 가이드북</div>
+        <div>비닐봉지 또는 지퍼백</div>
+        <div>우산 또는 우비</div>
+        <div>학교에서 안내한 물품</div>
+      </div>
+
+      <div class="box orange">
+        <div class="box-title">가져오지 않아요</div>
+        <ul>
+          <li>날카롭거나 위험한 물건</li>
+          <li>과도한 현금과 귀중품</li>
+          <li>친구의 활동을 방해하는 물건</li>
+          <li>쉽게 상하는 음식</li>
+          <li>학교에서 금지한 물품</li>
+        </ul>
+      </div>
+
+      <h3>안전 확인 퀴즈</h3>
+
+      <table class="compact">
+        <tr>
+          <th style="width:8%;">번호</th>
+          <th>질문</th>
+          <th style="width:37%;">나의 답</th>
+        </tr>
+        <tr>
+          <td class="center">1</td>
+          <td>버스에서 가장 먼저 할 일은?</td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="center">2</td>
+          <td>숙소에서 확인할 두 곳은?</td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="center">3</td>
+          <td>화재 시 엘리베이터를 이용해도 될까요?</td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="center">4</td>
+          <td>알레르기는 언제 알려야 할까요?</td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="center">5</td>
+          <td>친구가 싫다고 말하면 어떻게 할까요?</td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="center">6</td>
+          <td>모둠에서 이탈하면 어떻게 할까요?</td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="center">7</td>
+          <td>화재·구급 신고 번호는?</td>
+          <td><input type="text"></td>
+        </tr>
+      </table>
+
+      <div class="box green">
+        <p>
+          나는 일정과 안전수칙을 확인했으며, 친구를 배려하고 약속을 지키겠습니다.
+        </p>
+
+        <p class="right">
+          2026년 ____월 ____일　
+          학생 서명:
+          <input class="line-input" type="text" aria-label="학생 서명">
+        </p>
+      </div>
+
+      <div class="footer-title">출발 전 최종 점검</div>
+      <div class="page-number">17</div>
+    </section>
+
+    <!-- 18쪽 -->
+    <section class="page">
+      <h2>DAY 1 · 오늘의 여행 기록</h2>
+
+      <table>
+        <tr>
+          <th style="width:29%;">날짜와 날씨</th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th>가장 인상 깊었던 장소</th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th>새롭게 알게 된 것</th>
+          <td><textarea class="medium"></textarea></td>
+        </tr>
+        <tr>
+          <th>잘 지킨 안전수칙</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>친구에게 고마웠던 일</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>내일 더 잘하고 싶은 점</th>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+
+      <h3>연극 관람 기록</h3>
+
+      <table class="compact">
+        <tr>
+          <th style="width:28%;">공연 제목</th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th>기억에 남는 인물</th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th>기억에 남는 장면</th>
+          <td><textarea class="medium"></textarea></td>
+        </tr>
+      </table>
+
+      <div class="box yellow">
+        <div class="box-title">오늘의 한 문장</div>
+        <input type="text">
+      </div>
+
+      <p class="center" style="font-size:18pt;">
+        오늘의 만족도　☆ ☆ ☆ ☆ ☆
+      </p>
+
+      <div class="footer-title">현장 기록 · DAY 1</div>
+      <div class="page-number">18</div>
+    </section>
+
+    <!-- 19쪽 -->
+    <section class="page">
+      <h2>DAY 2 · 오늘의 여행 기록</h2>
+
+      <table>
+        <tr>
+          <th style="width:29%;">가장 즐거웠던 체험</th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th>예상과 달랐던 점</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>모둠이 협력한 순간</th>
+          <td><textarea class="medium"></textarea></td>
+        </tr>
+        <tr>
+          <th>안전 때문에 변경한 활동</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>그 결정이 필요했던 이유</th>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <th>친구를 배려했던 행동</th>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+
+      <h3>우리 모둠 협력 점검</h3>
+
+      <table class="compact">
+        <tr>
+          <th>점검 내용</th>
+          <th style="width:13%;">잘함</th>
+          <th style="width:13%;">보통</th>
+          <th style="width:16%;">더 노력</th>
+        </tr>
+        <tr>
+          <td>집결 시각을 지켰다.</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+        </tr>
+        <tr>
+          <td>모둠원의 의견을 들었다.</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+        </tr>
+        <tr>
+          <td>친구에게 체험을 강요하지 않았다.</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+        </tr>
+        <tr>
+          <td>안전수칙을 지켰다.</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+        </tr>
+      </table>
+
+      <div class="box yellow">
+        <div class="box-title">오늘의 한 문장</div>
+        <input type="text">
+      </div>
+
+      <p class="center" style="font-size:18pt;">
+        오늘의 만족도　☆ ☆ ☆ ☆ ☆
+      </p>
+
+      <div class="footer-title">현장 기록 · DAY 2</div>
+      <div class="page-number">19</div>
+    </section>
+
+    <!-- 20쪽 -->
+    <section class="page">
+      <h2>DAY 3 · 역사 탐방 기록</h2>
+
+      <h3>경복궁에서 발견한 조선의 모습</h3>
+      <textarea class="medium"></textarea>
+
+      <h3>가장 기억에 남는 건축물</h3>
+
+      <table>
+        <tr>
+          <th style="width:27%;">건축물 이름</th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th>기억에 남은 이유</th>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+
+      <h3>서대문형무소역사관에서 기억하고 싶은 것</h3>
+
+      <table>
+        <tr>
+          <th style="width:27%;">인물 또는 전시물</th>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <th>전하는 메시지</th>
+          <td><textarea class="medium"></textarea></td>
+        </tr>
+        <tr>
+          <th>오늘날 우리가 실천할 일</th>
+          <td><textarea class="medium"></textarea></td>
+        </tr>
+      </table>
+
+      <div class="box blue">
+        <div class="box-title">역사의 현장을 보존해야 하는 이유</div>
+        <textarea class="medium"></textarea>
+      </div>
+
+      <p class="center" style="font-size:18pt;">
+        오늘의 만족도　☆ ☆ ☆ ☆ ☆
+      </p>
+
+      <div class="footer-title">현장 기록 · DAY 3</div>
+      <div class="page-number">20</div>
+    </section>
+
+    <!-- 21쪽 -->
+    <section class="page">
+      <h2>여행을 마치며</h2>
+
+      <h3>여행 전과 여행 후의 생각 비교</h3>
+
+      <table class="compact">
+        <tr>
+          <th style="width:27%;">질문</th>
+          <th>여행 전 생각</th>
+          <th>여행 후 생각</th>
+        </tr>
+        <tr>
+          <td>서울은 어떤 도시인가?</td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>문화유산은 왜 지켜야 하는가?</td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>안전수칙은 왜 필요한가?</td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>모둠 활동에서 중요한 것은?</td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+
+      <h3>나의 성장 점검</h3>
+
+      <table class="compact">
+        <tr>
+          <th>문항</th>
+          <th style="width:12%;">매우 잘함</th>
+          <th style="width:10%;">잘함</th>
+          <th style="width:10%;">보통</th>
+          <th style="width:12%;">더 노력</th>
+        </tr>
+        <tr>
+          <td>시간과 약속을 지켰다.</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+        </tr>
+        <tr>
+          <td>모둠에서 이탈하지 않았다.</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+        </tr>
+        <tr>
+          <td>친구의 의견을 존중했다.</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+        </tr>
+        <tr>
+          <td>공공예절을 지켰다.</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+        </tr>
+        <tr>
+          <td>안전수칙을 실천했다.</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+          <td class="center">□</td>
+        </tr>
+      </table>
+
+      <h3>이번 여행을 한 문장으로 표현한다면</h3>
+      <textarea class="medium"></textarea>
+
+      <div class="footer-title">여행 후 성찰</div>
+      <div class="page-number">21</div>
+    </section>
+
+    <!-- 22쪽 -->
+    <section class="page">
+      <h2>수학여행의 추억을 미래의 나에게 보내요</h2>
+
+      <div class="instruction">
+        <strong>활동 방법</strong><br>
+        ① 수학여행에서 가장 기억에 남는 장면을 아래 그림 칸에 그려 보세요.<br>
+        ② 미래의 내가 이 엽서를 읽는다고 생각하며 편지를 써 보세요.<br>
+        ③ 기억하고 싶은 일, 새롭게 배운 점, 친구에게 고마웠던 일,
+        미래의 나에게 전하고 싶은 말을 자유롭게 적으세요.
+      </div>
+
+      <h3>1. 가장 기억에 남는 장면</h3>
+
+      <p class="small">
+        경복궁, 서울의 야경, 놀이기구, 친구들과 함께한 순간 등
+        가장 오래 기억하고 싶은 장면을 그려 보세요.
+      </p>
+
+      <div
+        class="drawing-space"
+        role="img"
+        aria-label="수학여행에서 가장 기억에 남는 장면을 그리는 공간"
+        style="min-height:245px;"
+      ></div>
+
+      <h3>2. 미래의 나에게 쓰는 편지</h3>
+
+      <div class="box blue">
+        <div class="box-title">이런 내용을 적어 보세요</div>
+
+        <div class="checkbox-list">
+          <div>가장 기억에 남는 일</div>
+          <div>여행에서 새롭게 배운 점</div>
+          <div>친구에게 고마웠던 일</div>
+          <div>미래에도 기억하고 싶은 마음</div>
+          <div>앞으로 실천하고 싶은 다짐</div>
+          <div>미래의 나에게 전하고 싶은 말</div>
+        </div>
+      </div>
+
+      <div class="postcard-letter">
+        <p class="letter-opening">
+          <strong>미래의 나에게</strong>
+        </p>
+
+        <textarea
+          class="large"
+          aria-label="미래의 나에게 보내는 편지"
+          placeholder="수학여행에서 가장 기억에 남는 일과 배운 점, 친구에게 고마웠던 일, 미래의 나에게 전하고 싶은 말을 적어 보세요."
+          style="min-height:190px;"
+        ></textarea>
+
+        <div class="letter-signature">
+          <div class="signature-date">
+            <input
+              class="date-part year"
+              type="text"
+              inputmode="numeric"
+              maxlength="4"
+              value="2026"
+              aria-label="작성 연도"
+            >
+            <span>년</span>
+
+            <input
+              class="date-part"
+              type="text"
+              inputmode="numeric"
+              maxlength="2"
+              value="10"
+              aria-label="작성 월"
+            >
+            <span>월</span>
+
+            <input
+              class="date-part"
+              type="text"
+              inputmode="numeric"
+              maxlength="2"
+              value="21"
+              aria-label="작성 일"
+            >
+            <span>일</span>
+          </div>
+
+          <div class="signature-name">
+            <span>지금의 나</span>
+            <input
+              class="student-name-input"
+              type="text"
+              aria-label="학생 이름"
+            >
+            <span>씀</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>3. 이 엽서를 받을 미래의 나</h3>
+
+      <div class="future-recipient">
+        <input
+          class="future-year-input"
+          type="text"
+          inputmode="numeric"
+          maxlength="4"
+          placeholder="2031"
+          aria-label="미래 연도"
+        >
+        <span>년,</span>
+
+        <input
+          class="future-age-input"
+          type="text"
+          inputmode="numeric"
+          maxlength="2"
+          placeholder="17"
+          aria-label="미래 나이"
+        >
+        <span>살이 된 나에게</span>
+      </div>
+
+      <p class="small center future-example">
+        작성 예: 2031년, 17살이 된 나에게
+      </p>
+
+      <div class="box green center closing-message">
+        <strong>
+          안전하게 함께한 여행,<br>
+          배움과 추억으로 오래 간직하겠습니다.
+        </strong>
+      </div>
+
+      <div class="footer-title">수학여행의 추억을 미래의 나에게</div>
+      <div class="page-number">22</div>
+    </section>
+  </main>
+
+  <script>
+    let editMode = false;
+
+    /*
+      기존 21쪽 파일의 저장 데이터가 22쪽 구조를 덮어쓰지 않도록
+      새로운 저장 키를 사용합니다.
+    */
+    const STORAGE_KEY = "yongcheon_trip_guide_2026_v22";
+
+    function toggleEdit() {
+      editMode = !editMode;
+
+      document.body.classList.toggle("edit-mode", editMode);
+
+      document.querySelectorAll(".editable-text").forEach(function (element) {
+        element.setAttribute(
+          "contenteditable",
+          editMode ? "true" : "false"
+        );
+      });
+
+      alert(
+        editMode
+          ? "본문 편집 기능을 켰습니다."
+          : "본문 편집 기능을 껐습니다."
+      );
+    }
+
+    function syncFormValues(root) {
+      root.querySelectorAll("input").forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+          if (input.checked) {
+            input.setAttribute("checked", "checked");
+          } else {
+            input.removeAttribute("checked");
+          }
+        } else {
+          input.setAttribute("value", input.value);
+        }
+      });
+
+      root.querySelectorAll("textarea").forEach(function (textarea) {
+        textarea.textContent = textarea.value;
+      });
+    }
+
+    function updatePageNumbers() {
+      const pages = document.querySelectorAll("#book > .page");
+
+      pages.forEach(function (page, index) {
+        const numberElement = page.querySelector(".page-number");
+
+        if (numberElement) {
+          numberElement.textContent = index + 1;
+        }
+      });
+    }
+
+    function saveDraft() {
+      const clone = document.getElementById("book").cloneNode(true);
+
+      syncFormValues(clone);
+
+      try {
+        localStorage.setItem(STORAGE_KEY, clone.innerHTML);
+        alert("작성 내용이 이 브라우저에 임시 저장되었습니다.");
+      } catch (error) {
+        alert(
+          "작성 내용을 저장하지 못했습니다. 브라우저의 저장 공간이나 개인정보 보호 설정을 확인해 주세요."
+        );
+      }
+    }
+
+    function loadDraft() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+
+      if (!saved) {
+        alert("저장된 작성 내용이 없습니다.");
+        return;
+      }
+
+      if (confirm("현재 내용을 저장된 작성본으로 바꾸시겠습니까?")) {
+        document.getElementById("book").innerHTML = saved;
+        updatePageNumbers();
+	removeWritingExamples();
+        alert("저장된 내용을 불러왔습니다.");
+      }
+    }
+
+    function resetDraft() {
+      if (!confirm("저장 내용을 삭제하고 처음 상태로 되돌리시겠습니까?")) {
+        return;
+      }
+
+      localStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    }
+
+    function downloadHTML() {
+      const clonedDocument = document.documentElement.cloneNode(true);
+	removeWritingExamples(clonedDocument);
+
+      clonedDocument
+        .querySelectorAll(".editable-text")
+        .forEach(function (element) {
+          element.setAttribute("contenteditable", "false");
+        });
+
+      clonedDocument.querySelector("body").classList.remove("edit-mode");
+
+      syncFormValues(clonedDocument);
+
+      const html = "<!DOCTYPE html>\n" + clonedDocument.outerHTML;
+
+      const blob = new Blob(
+        [html],
+        { type: "text/html;charset=utf-8" }
+      );
+
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = "2026_6학년_수학여행_가이드북_22페이지_작성본.html";
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      URL.revokeObjectURL(url);
+    }
+
+    function removeWritingExamples(root = document) {
+  /*
+    입력칸에 표시되는 회색 작성 예시를 삭제합니다.
+    예: "인물 이름", "2031", "17",
+    "책이나 누리집 이름", 편지 작성 안내 등
+  */
+  root.querySelectorAll("[placeholder]").forEach(function (element) {
+    element.removeAttribute("placeholder");
+  });
+
+  /*
+    입력칸 바깥에 표시된
+    "작성 예: 2031년, 17살이 된 나에게" 문장을 삭제합니다.
+  */
+  root.querySelectorAll(".future-example").forEach(function (element) {
+    element.remove();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  updatePageNumbers();
+  removeWritingExamples();
+});
+
+window.addEventListener("beforeprint", function () {
+  removeWritingExamples();
+});
+  </script>
+</body>
+</html>
